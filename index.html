@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watchlist</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+<div class="container">
+  <h1>🎬 My Watchlist</h1>
+
+  <!-- Toggle Add/List -->
+  <div class="toggle-container">
+    <span>View List</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleView">
+      <span class="slider"></span>
+    </label>
+    <span>Add Media</span>
+  </div>
+
+  <!-- Add Media -->
+  <section id="addSection">
+    <form id="mediaForm" class="styled-form">
+      <label for="type">Type:</label>
+      <select id="type">
+        <option value="movie">Movie</option>
+        <option value="tvshow">TV Show</option>
+        <option value="anime">Anime</option>
+      </select>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Name" required>
+
+      <label for="url">URL:</label>
+      <input type="url" id="url" placeholder="https://example.com" required>
+
+      <label for="status">Status:</label>
+      <select id="status">
+        <option value="false">❌ Not Seen</option>
+        <option value="true">✅ Seen</option>
+        <option value="watching">👀 Watching</option>
+      </select>
+
+      <div id="watchingInputs">
+        <label for="season">Season:</label>
+        <input type="number" id="season" placeholder="Season" min="1">
+
+        <label for="episode">Episode:</label>
+        <input type="number" id="episode" placeholder="Episode" min="1">
+      </div>
+
+      <button type="submit" class="green-btn">Add</button>
+    </form>
+  </section>
+
+  <!-- List -->
+  <section id="listSection" class="active">
+    <input type="text" id="searchBar" placeholder="🔍 Search..." class="search-bar">
+    <table>
+      <thead>
+        <tr>
+          <th data-column="type">Type</th>
+          <th data-column="name">Name</th>
+          <th data-column="status">Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="mediaTable"></tbody>
+    </table>
+  </section>
+</div>
+<script src="home.js"></script>
+</body>
+</html>
